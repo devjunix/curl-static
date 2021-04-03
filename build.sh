@@ -53,10 +53,10 @@ tar xfJ \${TARBALL_PATH}
 cd curl-*
 
 echo "***Installing build dependencies..."
-apk add gcc make musl-dev openssl-dev openssl-libs-static file
+apk add gcc make musl-dev openssl-dev openssl-libs-static file nghttp2-dev nghttp2-static nghttp2-libs
 
 echo "***configuring..."
-./configure --disable-shared --with-ca-fallback
+./configure --disable-shared --with-ca-fallback --with-nghttp2
 echo "making..."
 make curl_LDFLAGS=-all-static
 
