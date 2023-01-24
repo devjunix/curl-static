@@ -56,9 +56,9 @@ echo "***Installing build dependencies..."
 apk add gcc make musl-dev openssl-dev openssl-libs-static file nghttp2-dev nghttp2-static nghttp2-libs
 
 echo "***configuring..."
-./configure --disable-shared --with-ca-fallback --with-nghttp2
+./configure --disable-shared --with-ca-fallback --with-nghttp2 --with-openssl
 echo "making..."
-make curl_LDFLAGS=-all-static
+make LDFLAGS=-all-static
 
 echo "***Finishing up..."
 cp src/curl \${FINAL_BIN_PATH}
